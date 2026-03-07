@@ -2,16 +2,14 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_map/flutter_map.dart';
-import '../services/location_service.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:http/http.dart' as http;
 import 'package:latlong2/latlong.dart';
 import '../core/geocode.dart' as geo;
 import '../services/osm_routing_service.dart';
-import '../services/safety_scoring_service.dart';
 
-// ---------------------------------------------------------------------------
+
 // Nominatim suggestion model
-// ---------------------------------------------------------------------------
 class _NominatimPlace {
   final String displayName;
   final double lat;
@@ -34,41 +32,42 @@ class _HomeScreenState extends State<HomeScreen> {
   double _zoom = 15.0;
   bool showGrid = true;
 
-  // ---- user location state ----
+  // user location state 
   LatLng? _userLocation;
 
-  // ---- input controllers ----
+  // input controllers
   final _startController = TextEditingController(text: 'My Location');
   final _destController = TextEditingController();
 
-  // ---- resolved lat/lon for routing ----
+  // resolved lat/lon for routing 
   LatLng? _startPoint;
   LatLng? _endPoint;
   bool _startIsMyLocation = true;
 
-  // ---- code lookup marker + highlighted cell ----
+  //code lookup marker + highlighted cell 
   LatLng? _codeLookupMarker;
   ({int x, int y})? _highlightedCell; // single cell to highlight
 
-  // ---- suggestion dropdowns ----
+  // suggestion dropdowns 
   List<_NominatimPlace> _startSuggestions = [];
   List<_NominatimPlace> _destSuggestions = [];
   bool _showStartSuggestions = false;
   bool _showDestSuggestions = false;
 
-  // ---- routing state ----
+  // routing state
   List<LatLng> _shortestRoute = [];
   List<LatLng> _safestRoute = [];
   bool _showShortest = true;
   bool _isRouting = false;
 
-  // ---- police stations ----
+  // police stations 
   List<LatLng> _policeStations = [];
   bool _showPoliceStations = true;
 
   @override
   void initState() {
     super.initState();
+    _initUserLocation();
     _loadPoliceStations();
   }
 
@@ -79,9 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
     super.dispose();
   }
 
-  // ========================================================================
   // POLICE STATIONS — load from bundled asset
-  // ========================================================================
   Future<void> _loadPoliceStations() async {
     try {
       final raw = await rootBundle.loadString('assets/data/police_stations.json');
@@ -101,7 +98,7 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
-  // --- snackbar helper ---
+  // snackbar helper 
   void _showSnack(String msg) {
     if (!mounted) return;
     ScaffoldMessenger.of(context)
@@ -113,11 +110,41 @@ class _HomeScreenState extends State<HomeScreen> {
       ));
   }
 
+  // USER LOCATION
+  Future<void> _initUserLocation() async {
+    try {
+      bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
+      if (!serviceEnabled) return;
 
+      LocationPermission permission = await Geolocator.checkPermission();
+      if (permission == LocationPermission.denied) {
+        permission = await Geolocator.requestPermission();
+        if (permission == LocationPermission.denied) return;
+      }
+      if (permission == LocationPermission.deniedForever) return;
 
-  // ========================================================================
+      final position = await Geolocator.getCurrentPosition(
+        locationSettings: const LocationSettings(
+          accuracy: LocationAccuracy.high,
+        ),
+      );
+
+      final userLatLng = LatLng(position.latitude, position.longitude);
+
+      if (!mounted) return;
+      setState(() {
+        _userLocation = userLatLng;
+        if (_startIsMyLocation) {
+          _startPoint = userLatLng;
+        }
+      });
+      _mapController.move(userLatLng, 15.0);
+    } catch (_) {
+      // fall back to _center
+    }
+  }
+
   // INPUT PARSING
-  // ========================================================================
   bool _isBase36Code(String input) {
     return _base36Pattern.hasMatch(input.trim().toUpperCase());
   }
@@ -127,9 +154,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return LatLng(result.lat, result.lon);
   }
 
-  // ========================================================================
   // NOMINATIM SEARCH
-  // ========================================================================
   Future<List<_NominatimPlace>> _searchNominatim(String query) async {
     if (query.trim().length < 3) return [];
     final uri = Uri.parse(
@@ -160,9 +185,7 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
-  // ========================================================================
   // START FIELD HANDLING
-  // ========================================================================
   void _onStartChanged(String value) async {
     final trimmed = value.trim();
 
@@ -215,32 +238,17 @@ class _HomeScreenState extends State<HomeScreen> {
     FocusScope.of(context).unfocus();
   }
 
-  Future<void> _useMyLocation() async {
+  void _useMyLocation() {
     setState(() {
       _startController.text = 'My Location';
       _startIsMyLocation = true;
+      _startPoint = _userLocation;
       _startSuggestions = [];
       _showStartSuggestions = false;
     });
-
-    if (_userLocation == null) {
-      final position = await LocationService.getCurrentLocation();
-      if (position != null && mounted) {
-        final userLatLng = LatLng(position.latitude, position.longitude);
-        setState(() {
-          _userLocation = userLatLng;
-          _startPoint = userLatLng;
-        });
-        _mapController.move(userLatLng, 15.0);
-      }
-    } else {
-      setState(() => _startPoint = _userLocation);
-    }
   }
 
-  // ========================================================================
   // DESTINATION FIELD HANDLING
-  // ========================================================================
   void _onDestChanged(String value) async {
     final trimmed = value.trim();
 
@@ -280,9 +288,7 @@ class _HomeScreenState extends State<HomeScreen> {
     FocusScope.of(context).unfocus();
   }
 
-  // ========================================================================
   // CODE LOOKUP — jump camera + highlight cell (NO routing)
-  // ========================================================================
   void _locateCode(String fieldValue) {
     final trimmed = fieldValue.trim().toUpperCase();
     if (trimmed.length != 5 || !_isBase36Code(trimmed)) {
@@ -311,9 +317,7 @@ class _HomeScreenState extends State<HomeScreen> {
     _showSnack('Enter a valid 5-character code in Destination');
   }
 
-  // ========================================================================
   // FIND ROUTE — deliberate action with validation + debug logging
-  // ========================================================================
   Future<void> _onFindRoute() async {
     // ---- Validate start ----
     if (_startPoint == null) {
@@ -327,7 +331,7 @@ class _HomeScreenState extends State<HomeScreen> {
     }
 
     // ---- Debug: print resolved lat/lon ----
-    debugPrint('=== FIND ROUTE (OSRM + Safety) ===');
+    debugPrint('=== FIND ROUTE (OSRM) ===');
     debugPrint('Start:  lat=${_startPoint!.latitude}, lon=${_startPoint!.longitude}');
     debugPrint('Dest:   lat=${_endPoint!.latitude}, lon=${_endPoint!.longitude}');
 
@@ -341,56 +345,39 @@ class _HomeScreenState extends State<HomeScreen> {
     });
     FocusScope.of(context).unfocus();
 
-    // ---- Fetch alternative routes from OSRM ----
+    // ---- Fetch route from OSRM ----
     final stopwatch = Stopwatch()..start();
 
     try {
-      final routes = await OsmRoutingService.fetchRoutes(
+      final route = await OsmRoutingService.fetchRoute(
         _startPoint!,
         _endPoint!,
       );
       stopwatch.stop();
-      debugPrint('OSRM returned ${routes.length} routes in ${stopwatch.elapsedMilliseconds}ms');
+      debugPrint('OSRM route: ${route.length} points, ${stopwatch.elapsedMilliseconds}ms');
 
       if (!mounted) return;
 
-      if (routes.isEmpty) {
+      if (route.isEmpty) {
         setState(() => _isRouting = false);
         _showSnack('No route found. Check your locations.');
         return;
       }
 
-      // Shortest route is always the first one returned by OSRM.
-      final shortestRoute = routes.first;
-
-      // ---- Safety scoring ----
-      List<LatLng> safestRoute;
-
-      if (routes.length > 1) {
-        // Build safety scorer with current police station data.
-        final scorer = SafetyScoringService(
-          policeStations: _policeStations,
-          xFromLon: _xFromLon,
-          yFromLat: _yFromLat,
-        );
-
-        final result = scorer.selectSafestRoute(routes);
-        debugPrint('Safety scores: ${result.scores.map((s) => s.toStringAsFixed(3)).toList()}');
-        debugPrint('Safest route index: ${result.safestIndex}');
-
-        safestRoute = routes[result.safestIndex];
-      } else {
-        // Only one route available — use it as both shortest and safest.
-        safestRoute = shortestRoute;
-        debugPrint('Only 1 route returned — using it as both shortest and safest.');
-      }
+      // ---- Convert route points to grid cells for future safety scoring ----
+      final gridCells = route.map((p) {
+        final x = _xFromLon(p.longitude);
+        final y = _yFromLat(p.latitude);
+        return (x: x, y: y);
+      }).toList();
+      debugPrint('Route grid cells: ${gridCells.length}');
 
       setState(() {
-        _shortestRoute = shortestRoute;
-        _safestRoute = safestRoute;
+        _shortestRoute = route;
+        _safestRoute = []; // safest route will be added in a future phase
         _isRouting = false;
       });
-      debugPrint('Routes set. Shortest=${shortestRoute.length} pts, Safest=${safestRoute.length} pts');
+      debugPrint('Route set. Points=${route.length}');
     } catch (e, stackTrace) {
       stopwatch.stop();
       debugPrint('OSRM EXCEPTION: $e');
@@ -401,9 +388,7 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
-  // ========================================================================
   // MAP TAP (info bottom sheet + highlight cell)
-  // ========================================================================
   void _onMapTap(TapPosition _, LatLng point) {
     final gx = _xFromLon(point.longitude);
     final gy = _yFromLat(point.latitude);
@@ -440,9 +425,7 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  // ========================================================================
   // GRID HELPERS
-  // ========================================================================
   int _xFromLon(double lon) =>
       ((lon - geo.leftLon) * geo.metersPerDegLon) ~/ geo.cellSizeM;
 
