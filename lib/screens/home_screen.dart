@@ -1,24 +1,13 @@
-import 'dart:collection';
 import 'dart:convert';
-import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:geolocator/geolocator.dart';
+import '../services/location_service.dart';
 import 'package:http/http.dart' as http;
 import 'package:latlong2/latlong.dart';
 import '../core/geocode.dart' as geo;
-
-// ---------------------------------------------------------------------------
-// A* node — stores grid position, costs, and parent for path reconstruction
-// ---------------------------------------------------------------------------
-class _AStarNode {
-  final int x, y;
-  final double g; // cost from start
-  final double f; // g + heuristic
-  final _AStarNode? parent;
-
-  const _AStarNode(this.x, this.y, this.g, this.f, this.parent);
-}
+import '../services/osm_routing_service.dart';
+import '../services/safety_scoring_service.dart';
 
 // ---------------------------------------------------------------------------
 // Nominatim suggestion model
@@ -30,15 +19,15 @@ class _NominatimPlace {
   const _NominatimPlace(this.displayName, this.lat, this.lon);
 }
 
-class MapScreen extends StatefulWidget {
-  const MapScreen({super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
   @override
-  State<MapScreen> createState() => _MapScreenState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _MapScreenState extends State<MapScreen> {
-  static const _center = LatLng(18.4636, 73.8682);
+class _HomeScreenState extends State<HomeScreen> {
+  static const _center = LatLng(18.73149, 73.42620);
   static final _base36Pattern = RegExp(r'^[0-9A-Z]{5}$');
 
   final _mapController = MapController();
@@ -73,10 +62,14 @@ class _MapScreenState extends State<MapScreen> {
   bool _showShortest = true;
   bool _isRouting = false;
 
+  // ---- police stations ----
+  List<LatLng> _policeStations = [];
+  bool _showPoliceStations = true;
+
   @override
   void initState() {
     super.initState();
-    _initUserLocation();
+    _loadPoliceStations();
   }
 
   @override
@@ -84,6 +77,28 @@ class _MapScreenState extends State<MapScreen> {
     _startController.dispose();
     _destController.dispose();
     super.dispose();
+  }
+
+  // ========================================================================
+  // POLICE STATIONS — load from bundled asset
+  // ========================================================================
+  Future<void> _loadPoliceStations() async {
+    try {
+      final raw = await rootBundle.loadString('assets/data/police_stations.json');
+      final List<dynamic> data = json.decode(raw) as List<dynamic>;
+      final stations = data.map((e) {
+        final map = e as Map<String, dynamic>;
+        return LatLng(
+          (map['lat'] as num).toDouble(),
+          (map['lon'] as num).toDouble(),
+        );
+      }).toList();
+      if (!mounted) return;
+      setState(() => _policeStations = stations);
+      debugPrint('Police stations loaded: ${stations.length}');
+    } catch (e) {
+      debugPrint('Failed to load police_stations.json: $e');
+    }
   }
 
   // --- snackbar helper ---
@@ -98,41 +113,7 @@ class _MapScreenState extends State<MapScreen> {
       ));
   }
 
-  // ========================================================================
-  // USER LOCATION
-  // ========================================================================
-  Future<void> _initUserLocation() async {
-    try {
-      bool serviceEnabled = await Geolocator.isLocationServiceEnabled();
-      if (!serviceEnabled) return;
 
-      LocationPermission permission = await Geolocator.checkPermission();
-      if (permission == LocationPermission.denied) {
-        permission = await Geolocator.requestPermission();
-        if (permission == LocationPermission.denied) return;
-      }
-      if (permission == LocationPermission.deniedForever) return;
-
-      final position = await Geolocator.getCurrentPosition(
-        locationSettings: const LocationSettings(
-          accuracy: LocationAccuracy.high,
-        ),
-      );
-
-      final userLatLng = LatLng(position.latitude, position.longitude);
-
-      if (!mounted) return;
-      setState(() {
-        _userLocation = userLatLng;
-        if (_startIsMyLocation) {
-          _startPoint = userLatLng;
-        }
-      });
-      _mapController.move(userLatLng, 15.0);
-    } catch (_) {
-      // fall back to _center
-    }
-  }
 
   // ========================================================================
   // INPUT PARSING
@@ -158,7 +139,7 @@ class _MapScreenState extends State<MapScreen> {
       '&limit=5'
       '&countrycodes=in'
       '&addressdetails=1'
-      '&viewbox=73.65,18.65,74.05,18.25'
+      '&viewbox=73.32,18.84,73.54,18.63'
       '&bounded=1',
     );
     try {
@@ -234,14 +215,27 @@ class _MapScreenState extends State<MapScreen> {
     FocusScope.of(context).unfocus();
   }
 
-  void _useMyLocation() {
+  Future<void> _useMyLocation() async {
     setState(() {
       _startController.text = 'My Location';
       _startIsMyLocation = true;
-      _startPoint = _userLocation;
       _startSuggestions = [];
       _showStartSuggestions = false;
     });
+
+    if (_userLocation == null) {
+      final position = await LocationService.getCurrentLocation();
+      if (position != null && mounted) {
+        final userLatLng = LatLng(position.latitude, position.longitude);
+        setState(() {
+          _userLocation = userLatLng;
+          _startPoint = userLatLng;
+        });
+        _mapController.move(userLatLng, 15.0);
+      }
+    } else {
+      setState(() => _startPoint = _userLocation);
+    }
   }
 
   // ========================================================================
@@ -320,7 +314,7 @@ class _MapScreenState extends State<MapScreen> {
   // ========================================================================
   // FIND ROUTE — deliberate action with validation + debug logging
   // ========================================================================
-  void _onFindRoute() {
+  Future<void> _onFindRoute() async {
     // ---- Validate start ----
     if (_startPoint == null) {
       _showSnack('Start not resolved. Enter a code, address, or use My Location.');
@@ -333,29 +327,9 @@ class _MapScreenState extends State<MapScreen> {
     }
 
     // ---- Debug: print resolved lat/lon ----
-    debugPrint('=== FIND ROUTE ===');
+    debugPrint('=== FIND ROUTE (OSRM + Safety) ===');
     debugPrint('Start:  lat=${_startPoint!.latitude}, lon=${_startPoint!.longitude}');
     debugPrint('Dest:   lat=${_endPoint!.latitude}, lon=${_endPoint!.longitude}');
-
-    // ---- Convert to grid and validate ----
-    final sx = _xFromLon(_startPoint!.longitude);
-    final sy = _yFromLat(_startPoint!.latitude);
-    final ex = _xFromLon(_endPoint!.longitude);
-    final ey = _yFromLat(_endPoint!.latitude);
-    debugPrint('Grid:   start=($sx, $sy)  dest=($ex, $ey)');
-    debugPrint('Grid size: ${geo.gridCellsPerSide}');
-
-    final maxCell = geo.gridCellsPerSide;
-    if (sx < 0 || sx >= maxCell || sy < 0 || sy >= maxCell) {
-      _showSnack('Start location is outside the grid area.');
-      debugPrint('ERROR: Start ($sx,$sy) outside grid [0, $maxCell)');
-      return;
-    }
-    if (ex < 0 || ex >= maxCell || ey < 0 || ey >= maxCell) {
-      _showSnack('Destination is outside the grid area.');
-      debugPrint('ERROR: Dest ($ex,$ey) outside grid [0, $maxCell)');
-      return;
-    }
 
     // ---- Dismiss suggestions & keyboard ----
     setState(() {
@@ -367,34 +341,59 @@ class _MapScreenState extends State<MapScreen> {
     });
     FocusScope.of(context).unfocus();
 
-    // ---- Run A* synchronously with stopwatch ----
+    // ---- Fetch alternative routes from OSRM ----
     final stopwatch = Stopwatch()..start();
 
     try {
-      final shortest = _runAStar(_startPoint!, _endPoint!, safest: false);
-      debugPrint('Shortest done: ${shortest.length} points, ${stopwatch.elapsedMilliseconds}ms');
-
-      final safest = _runAStar(_startPoint!, _endPoint!, safest: true);
-      debugPrint('Safest done:   ${safest.length} points, ${stopwatch.elapsedMilliseconds}ms');
-
+      final routes = await OsmRoutingService.fetchRoutes(
+        _startPoint!,
+        _endPoint!,
+      );
       stopwatch.stop();
+      debugPrint('OSRM returned ${routes.length} routes in ${stopwatch.elapsedMilliseconds}ms');
 
-      if (shortest.isEmpty && safest.isEmpty) {
+      if (!mounted) return;
+
+      if (routes.isEmpty) {
         setState(() => _isRouting = false);
-        _showSnack('No route found within grid area.');
-        debugPrint('WARNING: A* returned empty paths');
+        _showSnack('No route found. Check your locations.');
         return;
       }
 
+      // Shortest route is always the first one returned by OSRM.
+      final shortestRoute = routes.first;
+
+      // ---- Safety scoring ----
+      List<LatLng> safestRoute;
+
+      if (routes.length > 1) {
+        // Build safety scorer with current police station data.
+        final scorer = SafetyScoringService(
+          policeStations: _policeStations,
+          xFromLon: _xFromLon,
+          yFromLat: _yFromLat,
+        );
+
+        final result = scorer.selectSafestRoute(routes);
+        debugPrint('Safety scores: ${result.scores.map((s) => s.toStringAsFixed(3)).toList()}');
+        debugPrint('Safest route index: ${result.safestIndex}');
+
+        safestRoute = routes[result.safestIndex];
+      } else {
+        // Only one route available — use it as both shortest and safest.
+        safestRoute = shortestRoute;
+        debugPrint('Only 1 route returned — using it as both shortest and safest.');
+      }
+
       setState(() {
-        _shortestRoute = shortest;
-        _safestRoute = safest;
+        _shortestRoute = shortestRoute;
+        _safestRoute = safestRoute;
         _isRouting = false;
       });
-      debugPrint('Routes set. Shortest=${shortest.length}, Safest=${safest.length}');
+      debugPrint('Routes set. Shortest=${shortestRoute.length} pts, Safest=${safestRoute.length} pts');
     } catch (e, stackTrace) {
       stopwatch.stop();
-      debugPrint('A* EXCEPTION: $e');
+      debugPrint('OSRM EXCEPTION: $e');
       debugPrint('$stackTrace');
       if (!mounted) return;
       setState(() => _isRouting = false);
@@ -456,97 +455,13 @@ class _MapScreenState extends State<MapScreen> {
   double _latAtY(int y) =>
       geo.topLat - (y * geo.cellSizeM / geo.metersPerDegLat);
 
+  // ignore: unused_element
   LatLng _gridToLatLng(int x, int y) {
     final lon = geo.leftLon +
         ((x * geo.cellSizeM + geo.cellSizeM / 2) / geo.metersPerDegLon);
     final lat = geo.topLat -
         ((y * geo.cellSizeM + geo.cellSizeM / 2) / geo.metersPerDegLat);
     return LatLng(lat, lon);
-  }
-
-  // ========================================================================
-  // A* PATHFINDING — uses PriorityQueue (fixed)
-  // ========================================================================
-  double _safetyScore(int x, int y) => 0.5;
-
-  double _heuristic(int x1, int y1, int x2, int y2) {
-    return ((x1 - x2).abs() + (y1 - y2).abs()).toDouble();
-  }
-
-  List<LatLng> _runAStar(LatLng start, LatLng end, {required bool safest}) {
-    final sx = _xFromLon(start.longitude);
-    final sy = _yFromLat(start.latitude);
-    final ex = _xFromLon(end.longitude);
-    final ey = _yFromLat(end.latitude);
-
-    final int minX = (sx < ex ? sx : ex) - 50;
-    final int maxX = (sx > ex ? sx : ex) + 50;
-    final int minY = (sy < ey ? sy : ey) - 50;
-    final int maxY = (sy > ey ? sy : ey) + 50;
-
-    const dxDir = [1, -1, 0, 0];
-    const dyDir = [0, 0, 1, -1];
-
-    // PriorityQueue from package:collection — sorts by f score
-    final openQueue = PriorityQueue<_AStarNode>(
-      (a, b) => a.f.compareTo(b.f),
-    );
-    final gScores = HashMap<int, double>();
-
-    // Encode (x,y) into a single int key for fast lookup
-    int encodeKey(int x, int y) => x * 100000 + y;
-
-    double stepCost(int nx, int ny) {
-      if (safest) return 1.0 + (1.0 - _safetyScore(nx, ny));
-      return 1.0;
-    }
-
-    final startNode = _AStarNode(sx, sy, 0, _heuristic(sx, sy, ex, ey), null);
-    openQueue.add(startNode);
-    gScores[encodeKey(sx, sy)] = 0;
-
-    _AStarNode? goalNode;
-
-    while (openQueue.isNotEmpty) {
-      final current = openQueue.removeFirst();
-
-      if (current.x == ex && current.y == ey) {
-        goalNode = current;
-        break;
-      }
-
-      // Skip if we've already found a better path to this node
-      final currentKey = encodeKey(current.x, current.y);
-      final bestG = gScores[currentKey];
-      if (bestG != null && current.g > bestG) continue;
-
-      for (var i = 0; i < 4; i++) {
-        final nx = current.x + dxDir[i];
-        final ny = current.y + dyDir[i];
-
-        if (nx < minX || nx > maxX || ny < minY || ny > maxY) continue;
-
-        final tentativeG = current.g + stepCost(nx, ny);
-        final nKey = encodeKey(nx, ny);
-        final existingG = gScores[nKey];
-
-        if (existingG == null || tentativeG < existingG) {
-          gScores[nKey] = tentativeG;
-          final f = tentativeG + _heuristic(nx, ny, ex, ey);
-          final node = _AStarNode(nx, ny, tentativeG, f, current);
-          openQueue.add(node);
-        }
-      }
-    }
-
-    // Reconstruct path
-    final path = <LatLng>[];
-    var n = goalNode;
-    while (n != null) {
-      path.add(_gridToLatLng(n.x, n.y));
-      n = n.parent;
-    }
-    return path.reversed.toList();
   }
 
   // ========================================================================
@@ -656,6 +571,25 @@ class _MapScreenState extends State<MapScreen> {
   }
 
   // ========================================================================
+  // POLICE STATION MARKERS
+  // ========================================================================
+  List<Marker> _buildPoliceMarkers() {
+    if (!_showPoliceStations || _zoom < 14) return [];
+    return _policeStations.map((point) {
+      return Marker(
+        point: point,
+        width: 32,
+        height: 32,
+        child: const Icon(
+          Icons.local_police,
+          color: Colors.blue,
+          size: 26,
+        ),
+      );
+    }).toList();
+  }
+
+  // ========================================================================
   // SUGGESTION DROPDOWN HELPER
   // ========================================================================
   Widget _buildSuggestionList(
@@ -752,6 +686,7 @@ class _MapScreenState extends State<MapScreen> {
                     ),
                   ],
                 ),
+              MarkerLayer(markers: _buildPoliceMarkers()),
               MarkerLayer(markers: _buildRouteMarkers()),
             ],
           ),
@@ -976,6 +911,41 @@ class _MapScreenState extends State<MapScreen> {
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
+                // Show Police toggle
+                Material(
+                  elevation: 4,
+                  borderRadius: BorderRadius.circular(24),
+                  color: _showPoliceStations ? Colors.blue.shade700 : Colors.grey.shade600,
+                  child: InkWell(
+                    borderRadius: BorderRadius.circular(24),
+                    onTap: () => setState(() => _showPoliceStations = !_showPoliceStations),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            _showPoliceStations
+                                ? Icons.local_police
+                                : Icons.local_police_outlined,
+                            color: Colors.white,
+                            size: 20,
+                          ),
+                          const SizedBox(width: 8),
+                          Text(
+                            _showPoliceStations ? 'Police ON' : 'Police OFF',
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(height: 10),
                 // Locate Code button
                 Material(
                   elevation: 4,

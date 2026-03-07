@@ -1,8 +1,8 @@
 import 'dart:math' as math;
 
 // ==== CONFIGURATION ====
-const double centerLat = 18.463625110886024;
-const double centerLon = 73.86819827139978;
+const double centerLat = 18.73149;
+const double centerLon = 73.42620;
 const double areaKm = 23.328;
 const int cellSizeM = 3;
 const int totalCodeLen = 5;
