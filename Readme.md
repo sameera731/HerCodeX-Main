@@ -4,11 +4,11 @@
 
 ## HerCodeX Supporting Module Repositories
 
-- **HerCodeX Anomaly Detection Module** – [GitHub Repo]
-- **HerCodeX Safety Scoring Engine** – [GitHub Repo]
-- **HerCodeX Web Intelligence Portal** – [GitHub Repo]
-- **HerCodeX NLP Sentiment & Risk Analysis Module** – [GitHub Repo]
-- **HerCodeX Render Backend Server** – [GitHub Repo]
+- **HerCodeX Anomaly Detection Module** – https://github.com/riyadasari/HerCodeX-Main_AnomalyDetection
+- **HerCodeX Safety Scoring Engine** – https://github.com/riyadasari/HerCodeX-Main_SafetyScore
+- **HerCodeX Web Intelligence Portal** – https://github.com/sameera731/HerCodeX-Web
+- **HerCodeX NLP Sentiment & Risk Analysis Module** – https://github.com/sanchita311/HerCodeX-NLP-Sentiment-Risk-Analysis
+- **HerCodeX Render Backend Server** – https://github.com/sanchita311/HerCodeX-Server
 
 ---
 
