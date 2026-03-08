@@ -1,0 +1,1478 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2026-02-20T19:54:28Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/521318983",
+        "amenity": "bar",
+        "name": "High Spirits"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.9052966,
+          18.5393901
+        ]
+      },
+      "id": "node/521318983"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/622955755",
+        "amenity": "bar",
+        "name": "Mix@36"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.9060086,
+          18.5397983
+        ]
+      },
+      "id": "node/622955755"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2034767421",
+        "addr:city": "Pune",
+        "addr:country": "IN",
+        "addr:postcode": "411048",
+        "addr:state": "Maharashtra",
+        "addr:street": "NIBM Road",
+        "amenity": "bar",
+        "atm": "no",
+        "food": "yes",
+        "internet_access": "no",
+        "name": "The Village",
+        "outdoor_seating": "no",
+        "smoking": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.89507,
+          18.477122
+        ]
+      },
+      "id": "node/2034767421"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2784753192",
+        "addr:city": "Pune",
+        "addr:housenumber": "129/5",
+        "addr:postcode": "411038",
+        "addr:street": "Paud Road",
+        "amenity": "bar",
+        "capacity": "50",
+        "cuisine": "regional",
+        "name": "Shreeman Hotel",
+        "phone": "+919960686221",
+        "smoking": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8166493,
+          18.510417
+        ]
+      },
+      "id": "node/2784753192"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2787018254",
+        "amenity": "bar",
+        "name": "Hotel Khybar",
+        "smoking": "outside"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8436294,
+          18.5177814
+        ]
+      },
+      "id": "node/2787018254"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3692855303",
+        "amenity": "bar",
+        "name": "D Palace",
+        "smoking": "outside"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7801955,
+          18.5176544
+        ]
+      },
+      "id": "node/3692855303"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4306948597",
+        "amenity": "pub",
+        "name": "43 Madhughat hou soc"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8399757,
+          18.6330799
+        ]
+      },
+      "id": "node/4306948597"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4520491890",
+        "amenity": "bar",
+        "name:en": "Sun and Moon"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8439223,
+          18.5213697
+        ]
+      },
+      "id": "node/4520491890"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5518858917",
+        "amenity": "bar",
+        "name": "4 Seasons"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7299433,
+          18.5938055
+        ]
+      },
+      "id": "node/5518858917"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5518859622",
+        "amenity": "bar",
+        "name": "Underground"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7299741,
+          18.5938253
+        ]
+      },
+      "id": "node/5518859622"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5578775812",
+        "amenity": "bar",
+        "check_date": "2023-07-06",
+        "name": "Thikana",
+        "name:mr": "ठिकाणा"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.752987,
+          18.5909776
+        ]
+      },
+      "id": "node/5578775812"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5578781072",
+        "amenity": "bar",
+        "name": "Spice Factory"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7529241,
+          18.5909395
+        ]
+      },
+      "id": "node/5578781072"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5613646640",
+        "amenity": "bar",
+        "name": "Valentine Square"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7849082,
+          18.5880299
+        ]
+      },
+      "id": "node/5613646640"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5730286723",
+        "amenity": "bar"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7949546,
+          18.489269
+        ]
+      },
+      "id": "node/5730286723"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6128594959",
+        "addr:city": "Pune",
+        "addr:housenumber": "135/136",
+        "addr:postcode": "411057",
+        "addr:street": "Mumbai-Banglore Bypass Highway, Wakad",
+        "amenity": "bar",
+        "name": "Talli Twist",
+        "name:mr": "टल्ली ट्विस्ट"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7571055,
+          18.5937351
+        ]
+      },
+      "id": "node/6128594959"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6128598688",
+        "amenity": "bar",
+        "name": "Tool Bar",
+        "name:mr": "टूल बार"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7532632,
+          18.6038223
+        ]
+      },
+      "id": "node/6128598688"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6186406670",
+        "amenity": "bar",
+        "name": "Company",
+        "name:mr": "कंपनी"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.9064495,
+          18.5457289
+        ]
+      },
+      "id": "node/6186406670"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6186406674",
+        "amenity": "bar",
+        "name": "The Urban Foundry",
+        "name:mr": "द अर्बन फाउंड्री"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.9111662,
+          18.5448427
+        ]
+      },
+      "id": "node/6186406674"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6186406679",
+        "amenity": "bar",
+        "name": "Lord of the Drinks",
+        "name:mr": "लॉर्ड ऑफ द ड्रिंक्स"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.9057682,
+          18.544994
+        ]
+      },
+      "id": "node/6186406679"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6199355626",
+        "amenity": "bar",
+        "name": "Mad About Drinks",
+        "name:mr": "मॅड अबाउट ड्रिंक्स"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8095091,
+          18.555037
+        ]
+      },
+      "id": "node/6199355626"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6218945891",
+        "addr:city": "Magarpatta City",
+        "addr:housenumber": "Shop no.14, First Floor, West Blok",
+        "addr:postcode": "411028",
+        "addr:street": "Mundhwa Road",
+        "amenity": "bar",
+        "brewery": "Guinness;various",
+        "email": "ohlive009@gmail.com",
+        "name": "Oh Live Pune",
+        "opening_hours": "Mo-Su 11:00-24:00",
+        "outdoor_seating": "yes",
+        "phone": "+917387953737",
+        "smoking": "outside",
+        "website": "https://ohlive.in"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.9336618,
+          18.5188022
+        ]
+      },
+      "id": "node/6218945891"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6968329911",
+        "amenity": "bar",
+        "name": "New Sarovar"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.738525,
+          18.4935842
+        ]
+      },
+      "id": "node/6968329911"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7031750720",
+        "amenity": "bar",
+        "name": "Bar Stock Exchange"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7528542,
+          18.5909321
+        ]
+      },
+      "id": "node/7031750720"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7031750721",
+        "amenity": "bar",
+        "name": "Publiq"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7528298,
+          18.5908936
+        ]
+      },
+      "id": "node/7031750721"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7031750723",
+        "amenity": "bar",
+        "name": "Barkhana"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7570414,
+          18.593841
+        ]
+      },
+      "id": "node/7031750723"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7031750727",
+        "amenity": "bar",
+        "name": "Top 87"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7544634,
+          18.6419826
+        ]
+      },
+      "id": "node/7031750727"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7031881186",
+        "amenity": "bar",
+        "name": "CO2"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7345942,
+          18.4920389
+        ]
+      },
+      "id": "node/7031881186"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7031881187",
+        "amenity": "bar",
+        "name": "Thalasso"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7330552,
+          18.4935842
+        ]
+      },
+      "id": "node/7031881187"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7031881188",
+        "amenity": "bar",
+        "name": "90 Degree"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7323944,
+          18.4938928
+        ]
+      },
+      "id": "node/7031881188"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7031881191",
+        "amenity": "bar",
+        "name": "Wrong Turn"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7329944,
+          18.4967082
+        ]
+      },
+      "id": "node/7031881191"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7031881192",
+        "amenity": "bar",
+        "name": "New Saiba"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7317651,
+          18.4994465
+        ]
+      },
+      "id": "node/7031881192"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7031881193",
+        "amenity": "bar",
+        "name": "Smokey Beach"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7147124,
+          18.487746
+        ]
+      },
+      "id": "node/7031881193"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7031881247",
+        "amenity": "bar",
+        "name": "Mix"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7145217,
+          18.49795
+        ]
+      },
+      "id": "node/7031881247"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7083553550",
+        "amenity": "bar",
+        "name": "Bar Stories"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8004563,
+          18.6332937
+        ]
+      },
+      "id": "node/7083553550"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7098304332",
+        "amenity": "bar",
+        "name": "Thikana"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7318903,
+          18.4960042
+        ]
+      },
+      "id": "node/7098304332"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7207627089",
+        "amenity": "bar",
+        "name": "Cuba Libre"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7528811,
+          18.6055573
+        ]
+      },
+      "id": "node/7207627089"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7207627091",
+        "amenity": "bar",
+        "name": "Ice N Fire Skylouge"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7714362,
+          18.5556214
+        ]
+      },
+      "id": "node/7207627091"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7207627093",
+        "amenity": "pub",
+        "microbrewery": "yes",
+        "name": "Billy's BrewStris"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8088812,
+          18.5566688
+        ]
+      },
+      "id": "node/7207627093"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7207627094",
+        "amenity": "bar",
+        "name": "The Theka"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.9107106,
+          18.544644
+        ]
+      },
+      "id": "node/7207627094"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7207627095",
+        "amenity": "bar",
+        "name": "The 3 Musketeers Pub"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.776232,
+          18.567471
+        ]
+      },
+      "id": "node/7207627095"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8227845725",
+        "addr:street": "Nande Balewadi Road, Pune, 411045",
+        "amenity": "pub",
+        "name": "AZZURO",
+        "opening_hours": "Mo-Su 12:00-03:00",
+        "phone": "9359408138",
+        "website": "https://dineout.co.in/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7435608,
+          18.5671883
+        ]
+      },
+      "id": "node/8227845725"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9245617736",
+        "addr:street": "Shop no. 1 & 3, Chintamani Pride, Near City Pride Multiplex, Kothrud, Pune, Maharashtra 411038",
+        "amenity": "bar",
+        "description": "Laid-back hangout with a terrace offering beer & cocktails, as well as bar bites & mains.",
+        "name": "N.I.P.R Bar",
+        "opening_hours": "Mo-Su 11:00-23:00",
+        "phone": "07887896000",
+        "website": "https://niprbar.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8191883,
+          18.4990414
+        ]
+      },
+      "id": "node/9245617736"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9314425195",
+        "addr:city": "pune",
+        "addr:housenumber": "55/8, Premnagar(Rajnagar)",
+        "addr:postcode": "411037",
+        "addr:street": "Satara rd, Bibvewadi",
+        "amenity": "bar",
+        "brewery": "various;Heineken;Warsteiner;Zipfer;Augustiner",
+        "internet_access": "wlan",
+        "min_age": "16",
+        "name": "2BHK Restaurant & Bar",
+        "opening_hours": "Mo-Su 08:00-23:00",
+        "opening_hours:covid19": "24/7",
+        "outdoor_seating": "yes",
+        "phone": "8208575388",
+        "smoking": "isolated"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8604629,
+          18.4860665
+        ]
+      },
+      "id": "node/9314425195"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9350374892",
+        "addr:city": "Pune",
+        "addr:district": "Pune",
+        "addr:postcode": "411038",
+        "addr:street": "Karve Road",
+        "alt_name": "BarBerry Kothrud",
+        "amenity": "bar",
+        "cuisine": "bar;food;drinks;party;nightclub",
+        "name": "BarBerry Kothrud",
+        "opening_hours": "Mo-Su 011:30-01:00",
+        "phone": "94133 24280",
+        "website": "https://barberrypune.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8147861,
+          18.4936289
+        ]
+      },
+      "id": "node/9350374892"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9480253247",
+        "addr:postcode": "411045",
+        "addr:street": "Gopal Hari Deshmukh Marg",
+        "amenity": "pub",
+        "name": "Elephant and Co.",
+        "name:mr": "एलिफंट आणि को. बनेर",
+        "phone": "+919028104800"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7803936,
+          18.5643913
+        ]
+      },
+      "id": "node/9480253247"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9591938786",
+        "addr:city": "Pune",
+        "addr:housenumber": "Survey no.20A",
+        "addr:postcode": "411014",
+        "addr:street": "Under Kharadi-Mundhwa Bridge, Chandan Nagar",
+        "amenity": "bar",
+        "brewery": "yes;various",
+        "name": "Gypsi House by Slay",
+        "opening_hours": "Tu-Su 14:00-02:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.9336854,
+          18.5373058
+        ]
+      },
+      "id": "node/9591938786"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9866082392",
+        "addr:floor": "9",
+        "amenity": "nightclub",
+        "name": "Players Lounge",
+        "source": "survey"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.90853,
+          18.5700422
+        ]
+      },
+      "id": "node/9866082392"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10159297170",
+        "amenity": "bar",
+        "description": "Craft Beer",
+        "name": "Effingut"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8794043,
+          18.5164489
+        ]
+      },
+      "id": "node/10159297170"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10269917158",
+        "amenity": "bar",
+        "check_date": "2022-12-17",
+        "name": "One peg down",
+        "name:en": "One peg down",
+        "name:mr": "वन पेग डाउन"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7652792,
+          18.6079068
+        ]
+      },
+      "id": "node/10269917158"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10618657259",
+        "addr:postcode": "411033",
+        "amenity": "bar",
+        "name": "1s Beer Shopee",
+        "opening_hours": "Mo-Su 10:00-22:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7834565,
+          18.6279904
+        ]
+      },
+      "id": "node/10618657259"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10719633224",
+        "amenity": "bar",
+        "name": "H2O Sports Bar and Rooftop."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7387431,
+          18.5888536
+        ]
+      },
+      "id": "node/10719633224"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10737340195",
+        "amenity": "bar",
+        "name": "Chandrama Bar"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8856861,
+          18.5411637
+        ]
+      },
+      "id": "node/10737340195"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10795206719",
+        "addr:city": "Pune",
+        "addr:housenumber": "Veda Food Court",
+        "addr:postcode": "411028",
+        "addr:street": "Malwadi Road",
+        "amenity": "bar",
+        "brewery": "no;mocktail_bar_and_softy_ice_cream",
+        "min_age": "13",
+        "name": "Quik Fizzy Mocktail Bar",
+        "opening_hours": "Mo-Su 11:00-23:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.9416095,
+          18.5103035
+        ]
+      },
+      "id": "node/10795206719"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10806939785",
+        "addr:city": "Pune",
+        "addr:postcode": "411057",
+        "amenity": "pub",
+        "name": "The Spirit Cafe and Bar"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.735945,
+          18.5796451
+        ]
+      },
+      "id": "node/10806939785"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11269059288",
+        "addr:city": "Pune",
+        "addr:district": "Pune",
+        "addr:postcode": "411038",
+        "addr:street": "Shubhankaroti Apts, Shop no. 2&3, Karve Rd, opp. Business Hub, Kothrud, Pune, Maharashtra",
+        "amenity": "bar",
+        "brewery": "yes;various",
+        "fast_food": "yes",
+        "lgbtq": "welcome",
+        "min_age": "18+",
+        "name": "The Tipsy Duckling",
+        "phone": "09130182609"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8137206,
+          18.4936921
+        ]
+      },
+      "id": "node/11269059288"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11269059291",
+        "amenity": "bar",
+        "name": "Jalsa Bar"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8130805,
+          18.4954344
+        ]
+      },
+      "id": "node/11269059291"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11274030991",
+        "amenity": "bar",
+        "brewery": "yes",
+        "name": "Hidden Place- The Hang out"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8870305,
+          18.5396478
+        ]
+      },
+      "id": "node/11274030991"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11274112987",
+        "amenity": "bar",
+        "name": "Takshashila Restaurant and Bar"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8349218,
+          18.5079894
+        ]
+      },
+      "id": "node/11274112987"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11336819203",
+        "amenity": "pub",
+        "name": "The 3 Musketeers",
+        "name:en": "The 3 Musketeers"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7352834,
+          18.5812362
+        ]
+      },
+      "id": "node/11336819203"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11680868854",
+        "addr:street": "Raja Bahadur Mill Marg",
+        "air_conditioning": "yes",
+        "amenity": "bar",
+        "brewery": "various",
+        "cuisine": "international",
+        "min_age": "18",
+        "name": "The Mills Social",
+        "outdoor_seating": "yes",
+        "payment:american_express": "yes",
+        "payment:app": "yes",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "payment:visa": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8709134,
+          18.5322947
+        ]
+      },
+      "id": "node/11680868854"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11680872748",
+        "addr:district": "Pune",
+        "addr:housenumber": "7",
+        "addr:street": "Raja Bahadur Mill Marg",
+        "amenity": "bar",
+        "brewery": "yes;various",
+        "cuisine": "continental",
+        "name": "2BHK Diner & Key Club",
+        "note": "dance floor: Yes",
+        "outdoor": "yes",
+        "wheelchair:ramp": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.870762,
+          18.5324407
+        ]
+      },
+      "id": "node/11680872748"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11680876534",
+        "amenity": "nightclub",
+        "cuisine": "indian",
+        "dance:style": "Disco",
+        "name": "Dimora Dance & Kitchen",
+        "ramp": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8705364,
+          18.5325717
+        ]
+      },
+      "id": "node/11680876534"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11726884485",
+        "addr:street": "North Main Road",
+        "amenity": "bar",
+        "brewery": "yes;various",
+        "cuisine": "international",
+        "min_age": "18",
+        "name": "SWIG - Bar & Eatery - Koregaon Park",
+        "opening_hours": "Mo-Su 10:00-22:00",
+        "ramp": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8938156,
+          18.5397636
+        ]
+      },
+      "id": "node/11726884485"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11744767155",
+        "amenity": "bar",
+        "name": "Talli Bar & Kitchen"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8997344,
+          18.5345152
+        ]
+      },
+      "id": "node/11744767155"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11909448981",
+        "amenity": "bar",
+        "check_date": "2024-05-16",
+        "name": "P Town"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7723978,
+          18.5709468
+        ]
+      },
+      "id": "node/11909448981"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11998324345",
+        "amenity": "pub",
+        "source": "survey 2024"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.9482678,
+          18.5535635
+        ]
+      },
+      "id": "node/11998324345"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12484474303",
+        "amenity": "bar",
+        "name": "TTF - The Tenth Floor"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7981724,
+          18.5542506
+        ]
+      },
+      "id": "node/12484474303"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12806062617",
+        "amenity": "nightclub",
+        "name": "Ole Ole",
+        "name:en": "Ole Ole"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7983116,
+          18.5544965
+        ]
+      },
+      "id": "node/12806062617"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12806062618",
+        "amenity": "pub",
+        "name": "Bovi",
+        "name:en": "Bovi"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.798398,
+          18.554475
+        ]
+      },
+      "id": "node/12806062618"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12861335418",
+        "amenity": "pub",
+        "name": "Effingut",
+        "name:en": "Effingut"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7756226,
+          18.5675209
+        ]
+      },
+      "id": "node/12861335418"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12952180366",
+        "amenity": "bar",
+        "name": "Alpana Bar"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7809726,
+          18.6289792
+        ]
+      },
+      "id": "node/12952180366"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12952183394",
+        "amenity": "bar"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7353097,
+          18.6494084
+        ]
+      },
+      "id": "node/12952183394"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12952191013",
+        "amenity": "bar",
+        "name": "Chetana Bar"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7829122,
+          18.6268758
+        ]
+      },
+      "id": "node/12952191013"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12952193268",
+        "amenity": "bar",
+        "name": "Aditya Bar & Restaurant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7937356,
+          18.6300721
+        ]
+      },
+      "id": "node/12952193268"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12952206115",
+        "amenity": "bar",
+        "name": "Chanakya Bar and Restaurant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7929735,
+          18.6298798
+        ]
+      },
+      "id": "node/12952206115"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12953436772",
+        "amenity": "bar",
+        "name": "Hotel Sentosa Bar and Restaurant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7327462,
+          18.6529131
+        ]
+      },
+      "id": "node/12953436772"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12953454504",
+        "amenity": "bar",
+        "name": "Punjanb Rasoi Bar and restaurant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.733178,
+          18.6525867
+        ]
+      },
+      "id": "node/12953454504"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13020965811",
+        "addr:city": "Pune",
+        "addr:district": "Pune",
+        "addr:postcode": "411021",
+        "addr:street": "Paud Road",
+        "amenity": "bar",
+        "name": "Jackson Resto Bar",
+        "name:mr": "जॅक्सन रेस्टो बार",
+        "opening_hours": "Mo-Su 11:00-00:30"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7688213,
+          18.5073023
+        ]
+      },
+      "id": "node/13020965811"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13371356706",
+        "amenity": "bar",
+        "check_date": "2025-12-12",
+        "name": "Punam Bar Kamshet"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.5583735,
+          18.7616239
+        ]
+      },
+      "id": "node/13371356706"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13371397342",
+        "amenity": "bar",
+        "check_date": "2025-12-12",
+        "name": "Reena Bar Restaurant"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.5564078,
+          18.7629479
+        ]
+      },
+      "id": "node/13371397342"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13371404977",
+        "amenity": "bar",
+        "check_date": "2025-12-12",
+        "name": "Angan",
+        "name:en": "Angan",
+        "name:hi": "Angan",
+        "name:mr": "Angan"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.6977137,
+          18.6991281
+        ]
+      },
+      "id": "node/13371404977"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13383261108",
+        "amenity": "bar",
+        "check_date": "2025-12-12",
+        "name": "Atharva Permit Room",
+        "name:en": "Atharva Permit Room",
+        "name:hi": "Atharva Permit Room",
+        "name:mr": "Atharva Permit Room"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.5574583,
+          18.7616985
+        ]
+      },
+      "id": "node/13383261108"
+    }
+  ]
+}

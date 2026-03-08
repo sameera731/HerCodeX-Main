@@ -1,0 +1,1342 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2026-02-20T18:05:22Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/192206270",
+        "amenity": "police",
+        "name": "Sahakarnagar Police Station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.849652,
+          18.4894643
+        ]
+      },
+      "id": "way/192206270"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/218691368",
+        "amenity": "police",
+        "name": "Chavan Nagar - Pune Rural Police Headquarters",
+        "name:mr": "पुणे ग्रामीण पोलीस मुख्यालय",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8228316,
+          18.543639
+        ]
+      },
+      "id": "way/218691368"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/264444880",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Faraskhana Police Station",
+        "name:mr": "फरासखाना पोलीस ठाणे",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8558419,
+          18.5164428
+        ]
+      },
+      "id": "way/264444880"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/265902954",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Akurdi Police Chowky",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7670685,
+          18.6507414
+        ]
+      },
+      "id": "way/265902954"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/280430828",
+        "amenity": "police",
+        "created_by": "Potlatch 0.10"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.9173998,
+          18.5075612
+        ]
+      },
+      "id": "node/280430828"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/360474279",
+        "addr:city": "Pune",
+        "addr:postcode": "411009",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Dattawadi Police Station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8481732,
+          18.4929157
+        ]
+      },
+      "id": "way/360474279"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/365655187",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Sinhagad Road Police Station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8138595,
+          18.4730707
+        ]
+      },
+      "id": "way/365655187"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/641670813",
+        "addr:city": "Pune",
+        "addr:housenumber": "Vidhyapeeth Road, Ganeshkhind Road, Near Pune University, Ganeshkhind",
+        "addr:postcode": "411007",
+        "addr:street": "विद्यापीठ रस्ता",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Chaturshringi Police Station",
+        "name:mr": "चतुशृंगी पोलीस ठाणे",
+        "opening_hours": "24/7",
+        "phone": "020 2565 5335",
+        "website": "https://punepolice.gov.in",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8257533,
+          18.5461302
+        ]
+      },
+      "id": "way/641670813"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/652054928",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Baner Police Station",
+        "name:en": "Baner Police Station",
+        "name:mr": "बाणेर पोलीस स्टेशन",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7748966,
+          18.5686585
+        ]
+      },
+      "id": "way/652054928"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/674930856",
+        "amenity": "police"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8788901,
+          18.5243076
+        ]
+      },
+      "id": "node/674930856"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/678444711",
+        "amenity": "police",
+        "name": "Sambhaji Police Chowki",
+        "name:mr": "संभाजी पोलीस चौकी"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8438921,
+          18.5131785
+        ]
+      },
+      "id": "node/678444711"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/706927370",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Somwar Peth Police Station सोमवार पेठ पोलिस स्टेशन",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8625641,
+          18.5194625
+        ]
+      },
+      "id": "way/706927370"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1028611648",
+        "addr:city": "Pune",
+        "addr:district": "Pune",
+        "addr:postcode": "411021",
+        "addr:street": "Lane 2",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Bavdhan Police Station",
+        "name:mr": "बावधन पोलीस ठाणे",
+        "phone": "+91-8856-062100",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.777488,
+          18.5113127
+        ]
+      },
+      "id": "way/1028611648"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1032594150",
+        "addr:city": "Pune",
+        "addr:street": "Dr. Homi Bhabha Marg",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Pashan Police station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7981062,
+          18.5382156
+        ]
+      },
+      "id": "way/1032594150"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1041721250",
+        "addr:city": "Pune",
+        "addr:postcode": "411048",
+        "addr:street": "Kondhwa Road",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Kondhwa traffic police chowky",
+        "operator": "Pune Traffic Police",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8895195,
+          18.464748
+        ]
+      },
+      "id": "way/1041721250"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1098988707",
+        "addr:city": "Pune",
+        "addr:postcode": "411057",
+        "addr:street": "Hinjawadi Phase 1 road",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Hinjawadi police station",
+        "name:mr": "हिंजवडी पोलीस स्थानक",
+        "opening_hours": "24/7",
+        "operator": "Maharashtra Police",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7356936,
+          18.5861167
+        ]
+      },
+      "id": "way/1098988707"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1161996883",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Khed Police Station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8813378,
+          18.8541242
+        ]
+      },
+      "id": "way/1161996883"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1222440025",
+        "amenity": "police",
+        "building": "yes",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7369373,
+          18.5865997
+        ]
+      },
+      "id": "way/1222440025"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1242493623",
+        "amenity": "police",
+        "building": "yes",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.4045597,
+          18.7538781
+        ]
+      },
+      "id": "way/1242493623"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1286673858",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Bharati Vidyapeeth Police Station",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8576317,
+          18.4590914
+        ]
+      },
+      "id": "way/1286673858"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1356854735",
+        "amenity": "police",
+        "building": "yes",
+        "name:en": "Paud Police Station",
+        "name:mr": "पौड पोलिस ठाणे",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.6157401,
+          18.5230529
+        ]
+      },
+      "id": "way/1356854735"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1430470190",
+        "addr:city": "Kharadi Pune",
+        "addr:district": "Pune",
+        "addr:postcode": "411014",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Kharadi Police Station",
+        "operator": "Police",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.9474895,
+          18.5490279
+        ]
+      },
+      "id": "way/1430470190"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "way/1466751926",
+        "addr:city": "PUNE",
+        "addr:postcode": "411037",
+        "addr:street": "Irawati Karve Marg",
+        "amenity": "police",
+        "building": "yes",
+        "name": "Maharshi Nagar Police Chowki",
+        "phone": "+91 20 24261871",
+        "@geometry": "center"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8711087,
+          18.4933317
+        ]
+      },
+      "id": "way/1466751926"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1534465625",
+        "amenity": "police",
+        "name": "Deccan Gymkhana Police Chowki",
+        "name:mr": "डेक्कन जिमखाना पोलीस चौकी",
+        "source": "local"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8403808,
+          18.5141406
+        ]
+      },
+      "id": "node/1534465625"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1703723978",
+        "amenity": "police",
+        "name": "Pimple Saudagar Police Statiom"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7993609,
+          18.6015562
+        ]
+      },
+      "id": "node/1703723978"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1909536882",
+        "amenity": "police",
+        "name": "Ganesh Peth Police station",
+        "source": "Personal Knowledge"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8621906,
+          18.5161748
+        ]
+      },
+      "id": "node/1909536882"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2027713730",
+        "addr:city": "Pune",
+        "addr:postcode": "411009",
+        "addr:street": "Golwalkar Guruji Path",
+        "amenity": "police",
+        "name": "Laxminagar Police chowky",
+        "opening_hours": "24/7"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8497008,
+          18.4896021
+        ]
+      },
+      "id": "node/2027713730"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2146313490",
+        "addr:housenumber": "HPRQ+JGH, Hinjawadi Phase 2 Rd, Hinjawadi Village, Hinjawadi, Pimpri-Chinchwad, Maharashtra 411057",
+        "addr:street": "Hinjawadi Phase 2 Road",
+        "amenity": "police",
+        "name": "Hinjawadi Police Chowki",
+        "name:mr": "हिंजवडी पोलीस चौकी"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7387073,
+          18.5917477
+        ]
+      },
+      "id": "node/2146313490"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2183543117",
+        "amenity": "police",
+        "name": "Yerawada Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8957965,
+          18.5527989
+        ]
+      },
+      "id": "node/2183543117"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2289023583",
+        "amenity": "police",
+        "name": "Balagandharva Police Station",
+        "name:mr": "बालगंधर्व पोलीस स्थानक"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8478417,
+          18.5222358
+        ]
+      },
+      "id": "node/2289023583"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2289023585",
+        "amenity": "police",
+        "name": "Sant Kabir Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8688574,
+          18.5148758
+        ]
+      },
+      "id": "node/2289023585"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2410718625",
+        "addr:city": "Pune",
+        "addr:housenumber": "1224",
+        "addr:postcode": "411030",
+        "addr:street": "Tatyasaheb Karandikar Path",
+        "amenity": "police",
+        "name": "Perugate Police Chowki",
+        "name:mr": "पेरूगेट पोलीस चौकी"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8487755,
+          18.5113926
+        ]
+      },
+      "id": "node/2410718625"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2420756045",
+        "amenity": "police",
+        "name": "Bavdhan Police Chowki",
+        "name:mr": "बावधन पोलीस चौकी"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7795837,
+          18.5224956
+        ]
+      },
+      "id": "node/2420756045"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2509520919",
+        "amenity": "police",
+        "name": "Alankar Police Chowki",
+        "name:mr": "अलंकार पोलिस चौकी",
+        "source": "Bing"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8262153,
+          18.4984329
+        ]
+      },
+      "id": "node/2509520919"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2517303173",
+        "amenity": "police",
+        "name": "Senadatta Police Chowki",
+        "name:mr": "सेनादत्त पोलीस चौकी"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8446033,
+          18.5052065
+        ]
+      },
+      "id": "node/2517303173"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2550695929",
+        "amenity": "police",
+        "name": "Narayan Peth Police Chowki",
+        "name:mr": "नारायण पेठ पोलीस चौकी"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8478649,
+          18.5162004
+        ]
+      },
+      "id": "node/2550695929"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2684638055",
+        "amenity": "police",
+        "name": "Police Madat Kendra",
+        "name:mr": "पोलीस मदत केंद्र"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.4833228,
+          18.7433889
+        ]
+      },
+      "id": "node/2684638055"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2694489803",
+        "addr:city": "Pune",
+        "addr:district": "Pune",
+        "addr:postcode": "411020",
+        "amenity": "police",
+        "name": "Khadki Police Station",
+        "name:mr": "खडकी पोलीस ठाणे"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8454253,
+          18.5571921
+        ]
+      },
+      "id": "node/2694489803"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2868930213",
+        "amenity": "police",
+        "name": "Kasba Peth Police Chowki",
+        "name:mr": "कसबा पेठ पोलीस चौकी"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8560378,
+          18.5204757
+        ]
+      },
+      "id": "node/2868930213"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2868930215",
+        "amenity": "police",
+        "name": "Paud Phata Police Chowki",
+        "name:mr": "पौड फाटा पोलीस चौकी"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8245986,
+          18.5064508
+        ]
+      },
+      "id": "node/2868930215"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2935676185",
+        "amenity": "police",
+        "name": "Swargate Police Station",
+        "name:mr": "स्वारगेट पोलीस ठाणे"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8591594,
+          18.5007921
+        ]
+      },
+      "id": "node/2935676185"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3337848240",
+        "amenity": "police",
+        "name": "Samarth Police Station",
+        "name:mr": "समर्थ पोलीस ठाणे"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8696893,
+          18.5203179
+        ]
+      },
+      "id": "node/3337848240"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3337848241",
+        "amenity": "police",
+        "name": "Shaniwar Peth Police Chowki",
+        "name:mr": "शनिवार पेठ पोलीस चौकी"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8500242,
+          18.5200094
+        ]
+      },
+      "id": "node/3337848241"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3386030401",
+        "amenity": "police",
+        "name": "Prabhat Police Chowki",
+        "name:mr": "प्रभात पोलीस चौकी"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8333062,
+          18.5145218
+        ]
+      },
+      "id": "node/3386030401"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3498347007",
+        "amenity": "police",
+        "name": "Pradhikaran Police Chowki",
+        "name:mr": "प्राधिकरण पोलीस चौकी"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.774177,
+          18.6621064
+        ]
+      },
+      "id": "node/3498347007"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4405664297",
+        "amenity": "police",
+        "name:en": "Singhgarh Police Chauki"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8154722,
+          18.4637816
+        ]
+      },
+      "id": "node/4405664297"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4547351989",
+        "amenity": "police",
+        "name:en": "Crime branch"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8448569,
+          18.5449382
+        ]
+      },
+      "id": "node/4547351989"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5149385033",
+        "amenity": "police",
+        "name": "Chakan Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8633136,
+          18.7594575
+        ]
+      },
+      "id": "node/5149385033"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5253713305",
+        "amenity": "police",
+        "name": "Dattawadi Police Chowki",
+        "phone": "+91-100"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.840267,
+          18.5010017
+        ]
+      },
+      "id": "node/5253713305"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5302827826",
+        "amenity": "police",
+        "name:en": "Kondhwa police station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8904599,
+          18.4659808
+        ]
+      },
+      "id": "node/5302827826"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6116290226",
+        "amenity": "police",
+        "name": "Mangaldas Police Chowki",
+        "name:mr": "मंगलदास पोलीस चौकी"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8789046,
+          18.5339866
+        ]
+      },
+      "id": "node/6116290226"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6975549707",
+        "amenity": "police",
+        "name": "Kamshet Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.5590423,
+          18.7624644
+        ]
+      },
+      "id": "node/6975549707"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7011007177",
+        "amenity": "police"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8425166,
+          18.6478898
+        ]
+      },
+      "id": "node/7011007177"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7083553571",
+        "amenity": "police",
+        "name": "PCMC Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7950186,
+          18.639873
+        ]
+      },
+      "id": "node/7083553571"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7632134931",
+        "addr:city": "khed",
+        "addr:postcode": "410505",
+        "addr:street": "Pune Nashik Road",
+        "amenity": "police",
+        "name": "Khed Police Station",
+        "opening_hours": "24/7",
+        "operator": "Police"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8867176,
+          18.8499104
+        ]
+      },
+      "id": "node/7632134931"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9355946374",
+        "amenity": "police",
+        "name": "Khopoli Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.3435277,
+          18.7862515
+        ]
+      },
+      "id": "node/9355946374"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10172966014",
+        "amenity": "police",
+        "name": "Centre for Police Research - CPR,"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8224604,
+          18.540655
+        ]
+      },
+      "id": "node/10172966014"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10219138027",
+        "addr:street": "Pashan-Bavdhan Road",
+        "amenity": "police",
+        "name": "bavdhandhan  Police Station",
+        "opening_hours": "24/7"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7796133,
+          18.5225916
+        ]
+      },
+      "id": "node/10219138027"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10219198246",
+        "amenity": "police",
+        "name": "police station Wagoli;Wagoli police station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.9868542,
+          18.5818249
+        ]
+      },
+      "id": "node/10219198246"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10219198247",
+        "amenity": "police",
+        "name": "lonikand Police station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          74.0237993,
+          18.620529
+        ]
+      },
+      "id": "node/10219198247"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10219198248",
+        "amenity": "police",
+        "name": "Unit 6 Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.9782357,
+          18.572673
+        ]
+      },
+      "id": "node/10219198248"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10219230643",
+        "amenity": "police",
+        "name": "wagoli police station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.9868025,
+          18.5811586
+        ]
+      },
+      "id": "node/10219230643"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10219230644",
+        "amenity": "police",
+        "name": "Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.9790844,
+          18.5713171
+        ]
+      },
+      "id": "node/10219230644"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10219230645",
+        "amenity": "police",
+        "name": "Chandan nagar police"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.9280864,
+          18.5570956
+        ]
+      },
+      "id": "node/10219230645"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10302381890",
+        "amenity": "police",
+        "check_date": "2023-01-03",
+        "internet_access": "no",
+        "name": "Wakad Police Station",
+        "name:en": "Wakad Police Station",
+        "name:mr": "वाकड पोलिस स्टेशन",
+        "phone": "02027261120",
+        "source": "local knowledge;survey;aerial imagery"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7653112,
+          18.607337
+        ]
+      },
+      "id": "node/10302381890"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10304957656",
+        "amenity": "police",
+        "check_date": "2024-08-14",
+        "internet_access": "no",
+        "name": "Chinchwad Police Station",
+        "name:en": "Chinchwad Police Station",
+        "name:mr": "चिंचवड पोलिस ठाणे"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7799961,
+          18.6293245
+        ]
+      },
+      "id": "node/10304957656"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10610500277",
+        "amenity": "police",
+        "name": "Vishrantwadi Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8775269,
+          18.5646718
+        ]
+      },
+      "id": "node/10610500277"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10657354394",
+        "amenity": "police",
+        "name": "Police Station Ravet"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.7554515,
+          18.6418999
+        ]
+      },
+      "id": "node/10657354394"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10725513809",
+        "amenity": "police",
+        "name": "Wakad Police Chowky",
+        "name:mr": "वाकड पोलीस चौकी"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.75756,
+          18.5920496
+        ]
+      },
+      "id": "node/10725513809"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10807210956",
+        "addr:city": "Pune",
+        "addr:postcode": "411027",
+        "addr:street": "Pimple Gurav-Navi Sangvi Road",
+        "amenity": "police",
+        "name": "Sangvi Police Station",
+        "opening_hours": "24/7"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8156391,
+          18.5785932
+        ]
+      },
+      "id": "node/10807210956"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11268303847",
+        "amenity": "police"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.6584954,
+          18.6967146
+        ]
+      },
+      "id": "node/11268303847"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11330878781",
+        "addr:city": "pune",
+        "addr:district": "Pune",
+        "addr:postcode": "411051",
+        "amenity": "police",
+        "name": "Vadgaon Budruk Police Chowki"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8327946,
+          18.4689831
+        ]
+      },
+      "id": "node/11330878781"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11545961639",
+        "amenity": "police"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.404556,
+          18.7539017
+        ]
+      },
+      "id": "node/11545961639"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11786140865",
+        "amenity": "police",
+        "name": "Kothrud Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.8024748,
+          18.506629
+        ]
+      },
+      "id": "node/11786140865"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13385631848",
+        "amenity": "police",
+        "name": "Ramwadi Police Station"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          73.90563,
+          18.554556
+        ]
+      },
+      "id": "node/13385631848"
+    }
+  ]
+}
