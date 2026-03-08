@@ -24,6 +24,9 @@ The system is composed of three major layers:
 - AI / ML / DL / LLM Analytics Layer  
 
 ---
+# Instructions to Run the project:
+Download the app APK file from Google Drive. Direct APK provided.
+For web portal, visit the web repository and see instructions in readme.
 
 # Platform Architecture  
 
