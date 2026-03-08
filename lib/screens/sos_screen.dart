@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:url_launcher/url_launcher.dart';
+import '../core/geocode.dart' as geo;
+import '../services/location_service.dart';
 
 class SosScreen extends StatefulWidget {
   const SosScreen({super.key});
@@ -11,19 +15,138 @@ class _SosScreenState extends State<SosScreen> {
   /// 0 = Send SOS Alert, 1 = Share Location
   int _selectedAction = 0;
 
-  // ========================================================================
-  // PLACEHOLDER CALLBACKS — no real logic yet
-  // ========================================================================
-  void _onSendSms() {
-    debugPrint('SOS SMS pressed (action=$_selectedAction)');
+  /// True while location is being fetched.
+  bool _isBusy = false;
+
+  // SharedPreferences key (must match profile_screen.dart)
+  static const _keyEmergencyPhone = 'profile_emergency_phone';
+
+  // ---- snackbar helper ----
+  void _showSnack(String msg) {
+    if (!mounted) return;
+    ScaffoldMessenger.of(context)
+      ..hideCurrentSnackBar()
+      ..showSnackBar(SnackBar(
+        content: Text(msg),
+        duration: const Duration(seconds: 3),
+        behavior: SnackBarBehavior.floating,
+      ));
   }
 
-  void _onSendWhatsApp() {
-    debugPrint('SOS WhatsApp pressed (action=$_selectedAction)');
+  // ========================================================================
+  // EMERGENCY PHONE — read from SharedPreferences
+  // ========================================================================
+  Future<String?> _getEmergencyPhone() async {
+    final prefs = await SharedPreferences.getInstance();
+    final phone = prefs.getString(_keyEmergencyPhone)?.trim();
+    if (phone == null || phone.isEmpty) return null;
+    return phone;
   }
 
-  void _onCallEmergency() {
-    debugPrint('SOS Call Emergency pressed');
+  // ========================================================================
+  // MESSAGE BUILDER
+  // ========================================================================
+  String _buildMessage(double lat, double lon, String code) {
+    final mapsUrl = 'https://maps.google.com/?q=$lat,$lon';
+
+    if (_selectedAction == 0) {
+      return 'SOS EMERGENCY 🚨\n\n'
+          'I need help immediately.\n\n'
+          'Latitude: $lat\n'
+          'Longitude: $lon\n'
+          'HerCodeX: $code\n\n'
+          'Open in Google Maps:\n'
+          '$mapsUrl';
+    } else {
+      return '📍 Location Shared via HerCodeX\n\n'
+          'Sharing my location for safety.\n\n'
+          'Latitude: $lat\n'
+          'Longitude: $lon\n'
+          'HerCodeX: $code\n\n'
+          'Open in Google Maps:\n'
+          '$mapsUrl';
+    }
+  }
+
+  // ========================================================================
+  // CORE: fetch location + phone, then run the action
+  // ========================================================================
+  Future<void> _executeAction(_LaunchMode mode) async {
+    if (_isBusy) return;
+    setState(() => _isBusy = true);
+
+    try {
+      // ---- Check emergency contact ----
+      final phone = await _getEmergencyPhone();
+      if (phone == null) {
+        _showSnack('Please set emergency contact in Profile.');
+        return;
+      }
+
+      // ---- Fetch location (on-demand, via centralized service) ----
+      final position = await LocationService.getCurrentLocation();
+      if (position == null) {
+        _showSnack('Location permission required.');
+        return;
+      }
+
+      final lat = position.latitude;
+      final lon = position.longitude;
+      final code = geo.latlonToCode(lat, lon);
+      final message = _buildMessage(lat, lon, code);
+
+      debugPrint('SOS action=$_selectedAction mode=$mode');
+      debugPrint('  Phone: $phone');
+      debugPrint('  Code:  $code');
+      debugPrint('  Lat:   $lat  Lon: $lon');
+
+      // ---- Launch ----
+      switch (mode) {
+        case _LaunchMode.sms:
+          await _launchSms(phone, message);
+          break;
+        case _LaunchMode.whatsapp:
+          await _launchWhatsApp(phone, message);
+          break;
+        case _LaunchMode.call:
+          await _launchCall(phone);
+          break;
+      }
+    } catch (e) {
+      debugPrint('SOS error: $e');
+      _showSnack('Something went wrong. Try again.');
+    } finally {
+      if (mounted) setState(() => _isBusy = false);
+    }
+  }
+
+  // ========================================================================
+  // LAUNCHERS
+  // ========================================================================
+  Future<void> _launchSms(String phone, String message) async {
+    final uri = Uri(
+      scheme: 'sms',
+      path: '+91$phone',
+      queryParameters: {'body': message},
+    );
+    if (!await launchUrl(uri)) {
+      _showSnack('Could not open SMS app.');
+    }
+  }
+
+  Future<void> _launchWhatsApp(String phone, String message) async {
+    final encoded = Uri.encodeComponent(message);
+    final uri = Uri.parse('https://wa.me/91$phone?text=$encoded');
+    if (!await launchUrl(uri, mode: LaunchMode.externalApplication)) {
+      _showSnack('Could not open WhatsApp.');
+    }
+  }
+
+  Future<void> _launchCall(String phone) async {
+    final uri = Uri(scheme: 'tel', path: '+91$phone');
+    if (!await launchUrl(uri)) {
+      _showSnack('Could not open dialer.');
+    }
   }
 
   // ========================================================================
@@ -107,7 +230,8 @@ class _SosScreenState extends State<SosScreen> {
                 icon: Icons.sms_outlined,
                 label: 'Send via SMS',
                 color: const Color(0xFF81C784),
-                onPressed: _onSendSms,
+                busy: _isBusy,
+                onPressed: () => _executeAction(_LaunchMode.sms),
               ),
               const SizedBox(height: 10),
 
@@ -116,7 +240,8 @@ class _SosScreenState extends State<SosScreen> {
                 icon: Icons.chat_outlined,
                 label: 'Send via WhatsApp',
                 color: const Color(0xFF25D366),
-                onPressed: _onSendWhatsApp,
+                busy: _isBusy,
+                onPressed: () => _executeAction(_LaunchMode.whatsapp),
               ),
               const SizedBox(height: 10),
 
@@ -125,7 +250,8 @@ class _SosScreenState extends State<SosScreen> {
                 icon: Icons.phone_in_talk_outlined,
                 label: 'Call Emergency Contact',
                 color: Colors.red.shade400,
-                onPressed: _onCallEmergency,
+                busy: _isBusy,
+                onPressed: () => _executeAction(_LaunchMode.call),
               ),
 
               const SizedBox(height: 28),
@@ -168,6 +294,11 @@ class _SosScreenState extends State<SosScreen> {
     );
   }
 }
+
+// ===========================================================================
+// INTERNAL ENUM
+// ===========================================================================
+enum _LaunchMode { sms, whatsapp, call }
 
 // ===========================================================================
 // REUSABLE WIDGETS (private to this file)
@@ -268,12 +399,14 @@ class _CommunicationButton extends StatelessWidget {
   final IconData icon;
   final String label;
   final Color color;
+  final bool busy;
   final VoidCallback onPressed;
 
   const _CommunicationButton({
     required this.icon,
     required this.label,
     required this.color,
+    required this.busy,
     required this.onPressed,
   });
 
@@ -282,9 +415,16 @@ class _CommunicationButton extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: ElevatedButton.icon(
-        onPressed: onPressed,
-        icon: Icon(icon, size: 20),
-        label: Text(label),
+        onPressed: busy ? null : onPressed,
+        icon: busy
+            ? const SizedBox(
+                width: 18,
+                height: 18,
+                child: CircularProgressIndicator(
+                    strokeWidth: 2, color: Colors.white),
+              )
+            : Icon(icon, size: 20),
+        label: Text(busy ? 'Please wait…' : label),
         style: ElevatedButton.styleFrom(
           backgroundColor: color,
           foregroundColor: Colors.white,
