@@ -1,0 +1,27 @@
+{
+    "X9Y8Z": {
+        "place_name": "SIT Campus",
+        "safety_score": 0.86,
+        "status": "Safe"
+    },
+    "M4N5P": {
+        "place_name": "Bhushi Dam",
+        "safety_score": 0.143,
+        "status": "Danger"
+    },
+    "L2K3J": {
+        "place_name": "Khandala Ghat",
+        "safety_score": 0.517,
+        "status": "Cautious"
+    },
+    "A1B2C": {
+        "place_name": "Lonavala Station Area",
+        "safety_score": 0.365,
+        "status": "Cautious"
+    },
+    "R7T8W": {
+        "place_name": "Tiger Point",
+        "safety_score": 0.083,
+        "status": "Danger"
+    }
+}
